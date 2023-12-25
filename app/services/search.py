@@ -1,15 +1,17 @@
 import os
 import pinecone
+from app.config import *
+
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores.pinecone import Pinecone
 
 def get_vector_search_index(documents):
     embeddings = embeddings = OpenAIEmbeddings(api_key=os.environ['OPENAI_API_KEY'])
     pinecone.init(
-        api_key=os.environ['PINECONE_API_KEY'],
-        environment=os.environ['PINECONE_ENVIRONMENT'],
+        api_key=PINECONE_API_KEY,
+        environment=PINECONE_ENVIRONMENT,
     )
-    index_name=os.environ['PINECONE_INDEX']
+    index_name=PINECONE_INDEX
     index = Pinecone.from_documents(documents=documents, embedding=embeddings, index_name=index_name)
     return index
 

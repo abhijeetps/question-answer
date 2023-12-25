@@ -1,3 +1,5 @@
+import uvicorn
+
 from app.config import *
 from app.utils.utils import *
 from app.services.answer import *

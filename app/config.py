@@ -1,8 +1,16 @@
+import os
 from dotenv import load_dotenv, find_dotenv
 
 load_dotenv(find_dotenv())
+
+OPENAI_API_KEY=os.environ['OPENAI_API_KEY']
+PINECONE_API_KEY=os.environ['PINECONE_API_KEY']
+PINECONE_ENVIRONMENT=os.environ['PINECONE_ENVIRONMENT']
+PINECONE_INDEX=os.environ['PINECONE_INDEX']
 
 CHUNK_SIZE = 1000
 CHUNK_OVERLAP = 200
 DOCUMENTS_DIRECTORY_PATH = "documents/"
 JSON_DIRECTORY_PATH = "jsons/"
+DEFAULT_MODEL_NAME="gpt-3.5-turbo"
+DEFAULT_MODEL_TEMPERATURE=0.5
